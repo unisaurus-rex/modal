@@ -8,28 +8,23 @@ describe("modal controller test", function(){
         modaldata = getmodalData();
     });
 
-    afterEach(function(){
-
-    });
-
 
     it("passes in the correct data for the table modal", function() {
 
         modalText = modaldata("table");
-        expect(modalText.data).toEqual("All Issuers");
+        expect(modalText).toEqual(["All Issuers"]);
     });
 
     it("passes in the correct data for the table-bar modal", function() {
 
         modalText = modaldata("table-bar");
-        expect(modalText.data).toEqual("My Financial Institution");
+        expect(modalText).toEqual(["My Financial Institution"]);
     });
 
     it("passes the generic data if nothing is passed", function(){
 
         modalText = modaldata("");
-        console.log(modalText);
-        expect(modalText.data).toEqual([ 'All Issuers', 'My Financial Institution', 'Issuer 1', 'Issuer 2', 'Issuer CUs' ]);
+        expect(modalText).toEqual([ 'All Issuers', 'My Financial Institution', 'Issuer 1', 'Issuer 2', 'Issuer CUs' ]);
 
     });
 });

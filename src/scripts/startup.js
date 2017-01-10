@@ -189,13 +189,15 @@ drawTable(table, tableData);
 //determine which button was clicked to pull corresponding modal content
 $('#modaloverlay').on('show.bs.modal', function(event) {
   var button = $(event.relatedTarget);
+  console.log(button);
+  console.log("button.data: ", button.data());
+  //grab the modal name
   var buttonName = button.data('content');
   
-  //pass the button name to the modal controller to pull the correct data
+  //grab the data from the model
   var modaldata = getmodalData();
-
   var modalText = modaldata(buttonName);
-  console.log("modalText.data: ", modalText.data);
+  console.log("modalText", modalText);
 
   var buildModal = modalPrompt();
   buildModal(buttonName, modalText);

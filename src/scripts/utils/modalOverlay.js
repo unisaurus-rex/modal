@@ -9,7 +9,7 @@ export default function modalButton() {
         var modalBody = d3.select(".modal-body").text(modalName);
 
         var bodytext = modalBody.selectAll("p")
-            .data(modalText.data)
+            .data(modalText)
             .enter()
             .append("p")
             .text((d) => {

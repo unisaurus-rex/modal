@@ -22,11 +22,7 @@ export default function getData(){
     var fis = Object.keys(insightsData);
 
     // Default values for the modal title, body and data
-    var modalContent = {
-        title: "general title",
-        body: "general content",
-        data: fis
-    };
+    var modalContent =  fis;
 
     // TODO: Add more cases for each modal and change assigned data values
     // Depending on which modal button was clicked, a name
@@ -36,9 +32,9 @@ export default function getData(){
     function buildModal(buttonName){
         if(!arguments.length) return modalContent;
         switch(buttonName){
-            case "table": modalContent.data = fis[0];
+            case "table": modalContent = [fis[0]];
                 break;
-            case "table-bar": modalContent.data = fis[1];
+            case "table-bar": modalContent = [fis[1]];
                 break;
             default: return modalContent;
                 break;
