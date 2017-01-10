@@ -13,7 +13,8 @@ import tableChart from 'table';
 import donutChart from 'donut';
 import {getData as getTableData} from 'tableController';
 import addBootstrapCheckboxObservers from 'checkboxObserver';
-import modalData from 'modal';
+import getmodalData from 'modalController';
+import modalPrompt from 'modal';
 
 /************************************************ Grouped Bar Chart ************************************************/
 
@@ -183,17 +184,22 @@ var drawTable = tableChart();
 drawTable(table, tableData);
 
 /************************************************ MODAL ************************************************/
-var modal = d3.select("#modaldemo");
 
-var demodata = modalData();
 
-console.log("demoData ", demodata);
+//determine which button was clicked to pull corresponding modal content
+$('#modaloverlay').on('show.bs.modal', function(event) {
+  var button = $(event.relatedTarget);
+  var buttonName = button.data('content');
+  
+  //pass the button name to the modal controller to pull the correct data
+  var modaldata = getmodalData();
 
-var modalText = modal.selectAll("p")
-    .data(demodata)
-    .enter()
-    .append("p")
-    .text((d) => {return d;});
+  var modalText = modaldata(buttonName);
+  console.log("modalText.data: ", modalText.data);
+
+  var buildModal = modalPrompt();
+  buildModal(buttonName, modalText);
+});
 
 /************************************************ DONUTS ************************************************/
 

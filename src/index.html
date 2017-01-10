@@ -32,6 +32,7 @@
 
       <!-- Page Content -->
       <div id="page-content-wrapper">
+        <!-- Navigation Bar -->
         <nav class="navbar-default">
           <div class="container-fluid">
             <div class="navbar-header">
@@ -55,6 +56,22 @@
           </div>
         </nav>
 
+        <!-- Modal -->
+        <div class="modal fade" id="modaloverlay" tabindex="-1" role="dialog" aria-labelledby="modal overlay">
+          <div class="modal-dialog modal-sm" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                <h5 class="modal-title"></h5>
+              </div>
+              <div class="modal-body"></div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- StackedBar and Table Row with one column: 12 -->
         <div class="flex-row row">
           <div class="col-sm-12 ">
@@ -73,20 +90,20 @@
                       <li value="amt_sale">Total Amount of Sales</li>
                       <li value="amt_fee">Total Amount of Interchange Fee</li>
                       <li value="n_card">Total Number of Cards Used</li>
-                      <li value="avg_sale">Average Sales Amount</option>
+                      <li value="avg_sale">Average Sales Amount</li>
                         <li value="avg_fee">Average Interchange Fee Amount</li>
                         <li value="trans_pc">Transactions Per Card</li>
                         <li value="sale_pc">Dollar Amount Per Card</li>
                         <li value="fee_pc">Interchange Fee Per Card</li>
                     </ul>
                   </div>
-                  <div class="text-right"><i class="fa fa-question-circle"></i></div>
+                  <div class="text-right"><a href="#" data-toggle="modal" data-target="#modaloverlay" data-content="table-bar"><i class="fa fa-question-circle fa-2x fa-fw text-muted"></i></a></div>
                 </div>
 
 
               </div>
               <div class="panel-body">
-
+                <!-- Charts and tables go here -->
                 <div class="col-sm-8">
                   <div id="chartid">
 
@@ -94,30 +111,12 @@
 
                 </div>
                 <div class="col-sm-4">
-                  <div id="drawtable" data-spy="scroll" data-target="#modaldemo">
-                      <!-- modal -->
-                      <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target=".table-modal">modal</button>
-
-                      <div class="modal fade table-modal" tabindex="-1" role="dialog" aria-labelledby="table modal">
-                          <div class="modal-dialog modal-sm" role="document">
-                              <div class="modal-content">
-                                  <div class="modal-header">
-                                      <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                                      <h5 class="modal-title">Table Modal</h5>
-                                  </div>
-                                  <div class="modal-body" id="modaldemo"></div>
-                                  <div class="modal-footer">
-                                      <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-                                  </div>
-                              </div>
-                          </div>
-                      </div>
-                    <div id="tablename"></div>
-
+                  <div id="drawtable">
+                     <!-- modal button for demo purposes, can be removed eventually -->
+                     <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#modaloverlay" data-content="table">modal</button>
+                     <div id="tablename"></div>
                   </div>
                 </div>
-                <!--Charts and tables go here-->
-
               </div>
               <div class="panel-footer">
                 <div class="checkboxes">
@@ -203,7 +202,7 @@
                         <li value="fee_pc">Interchange Fee Per Card</li>
                     </ul>
                   </div>
-                  <div class="text-right"><i class="fa fa-question-circle"></i></div>
+                  <div class="text-right"><a href="#" data-toggle="modal" data-target="#modaloverlay" data-content="donut1"><i class="fa fa-question-circle fa-2x fa-fw text-muted"></i></a></div>
                 </div>
               </div>
               <div class="panel-body">
@@ -282,7 +281,7 @@
                         <li value="fee_pc">Interchange Fee Per Card</li>
                     </ul>
                   </div>
-                  <div class="text-right"><i class="fa fa-question-circle"></i></div>
+                  <div class="text-right"><a href="#" data-toggle="modal" data-target="#modaloverlay" data-content="donut2"><i class="fa fa-question-circle fa-2x fa-fw text-muted"></i></a></div>
                 </div>
               </div>
               <div class="panel-body">
@@ -361,7 +360,7 @@
                         <li value="fee_pc">Interchange Fee Per Card</li>
                     </ul>
                   </div>
-                  <div class="text-right"><i class="fa fa-question-circle"></i></div>
+                  <div class="text-right"><a href="#" data-toggle="modal" data-target="#modaloverlay" data-content="donut3"><i class="fa fa-question-circle fa-2x fa-fw text-muted"></i></a></div>
                 </div>
               </div>
               <div class="panel-body">

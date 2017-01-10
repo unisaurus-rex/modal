@@ -2,14 +2,52 @@
  * @module modalController
  */
 import {getInsightsData} from 'model';
-import * as d3 from "d3";
 
-export default function(){
-    var txnType = "sig_debit";
+/**
+ * Controller for the Bootstrap modal component that will retrieve 
+ * insights data and assign it to a modalContent object that will 
+ * build out the modal's title and body.
+ * @function getData
+ * @returns {function} - configurable function that can be used to format the modal
+ */
 
-    var insightsData = getInsightsData(txnType);
+export default function getData(){
+    
+    // TODO: Change what data will be pulled in
+    // Place holder right now, pulls in data from the 
+    // model to be displayed in the modal. Right now, 
+    // it just pulls a list of fis
+    var insightsData = getInsightsData("sig_debit");
+    console.log("getInsightsData('sig_debit'): ", insightsData);
     var fis = Object.keys(insightsData);
-    console.log("fis ", fis);
-    return fis;
 
+    // Default values for the modal title, body and data
+    var modalContent = {
+        title: "general title",
+        body: "general content",
+        data: fis
+    };
+
+    // TODO: Add more cases for each modal and change assigned data values
+    // Depending on which modal button was clicked, a name
+    // identifier will be passed in to determine what data to
+    // set the modalContent, it will return the default values
+    // if none of the cases match with the pre-defined list.
+    function buildModal(buttonName){
+        if(!arguments.length) return modalContent;
+        switch(buttonName){
+            case "table": modalContent.data = fis[0];
+                break;
+            case "table-bar": modalContent.data = fis[1];
+                break;
+            default: return modalContent;
+                break;
+                
+        }
+        return modalContent;
+    }
+
+    
+    return buildModal; //return the modalContent object's values to build out the modal components
 }
+ 
